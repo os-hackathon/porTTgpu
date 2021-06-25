@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH --account=oshackathon
+#SBATCH --qos=hackathon
+#SBATCH --partition=p100-gpu
+#SBATCH --job-name=transpose
+#SBATCH --ntasks=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --mem=12g
+#SBATCH --gres=gpu:1
+#SBATCH --time=00:10:00
+#SBATCH --output=out
+
+module load gcc/10.2.0 openmpi/4.0.2 cuda
+nvprof ./demo
